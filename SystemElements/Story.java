@@ -3,6 +3,7 @@ package SystemElements;
 import Database.StoryDatabase;
 import Database.UserDatabase;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Story extends Content {
 
@@ -13,8 +14,9 @@ public class Story extends Content {
     }
     
 //constructor for read story from file 
-    public Story(int id, int userId, LocalDate timeStamp, String content, String photo) {
+    public Story(int id, int userId, LocalDateTime timeStamp, String content, String photo) {
         super(id, userId, timeStamp, content, photo);
+        StoryExpiry storyExpiry = new StoryExpiry(this);
     }
 
     private void setId() {
@@ -27,5 +29,8 @@ public class Story extends Content {
             }
         }
     }
-
+    
+    public LocalDateTime getCreationTime(){
+        return timeStamp;
+    }
 }
