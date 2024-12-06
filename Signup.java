@@ -1,7 +1,8 @@
 package Start;
 
 import SystemElements.User;
-import UserManager.LogingManager;
+import Management.UserManager;
+import SystemElements.UserBuilder;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.GridLayout;
@@ -30,7 +31,7 @@ public class Signup implements ActionListener, KeyListener {
     JTextField textField[] = new JTextField[4];
     JPasswordField passwordField = new JPasswordField();
     JButton button[] = new JButton[2];
-    LogingManager manager = new LogingManager();
+    UserManager manager = new UserManager();
 
     public Signup() {
         frame.setLayout(null);
@@ -105,7 +106,7 @@ public class Signup implements ActionListener, KeyListener {
             } else if (!Validation.validDate(textField[3].getText())) {
                 JOptionPane.showMessageDialog(panel1, "Please Enter Valid Date");
             } else {
-                User user = new User(textField[0].getText(), textField[1].getText(), textField[2].getText(), passwordField.getText(), LocalDate.now());
+                User user = new UserBuilder(textField[0].getText(), textField[1].getText(), textField[2].getText(), passwordField.getText(), LocalDate.now()).build();
                 if (manager.signUp(user)) {
                     frame.dispose();
                     new NewsFeed(user);

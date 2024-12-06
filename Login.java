@@ -1,7 +1,7 @@
 package Start;
 
 import SystemElements.User;
-import UserManager.LogingManager;
+import Management.UserManager;
 import java.awt.Color;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
@@ -18,7 +18,7 @@ public class Login implements ActionListener, KeyListener {
     JPasswordField passwordField = new JPasswordField();
     private JFrame frame = new JFrame("Log in");
     private JButton button[] = new JButton[2];
-    LogingManager manager = new LogingManager();
+    UserManager manager = new UserManager();
 
     //Gui Design in the constructor
     public Login() {
