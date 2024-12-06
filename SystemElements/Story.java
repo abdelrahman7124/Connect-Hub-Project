@@ -16,7 +16,6 @@ public class Story extends Content {
 //constructor for read story from file 
     public Story(int id, int userId, LocalDateTime timeStamp, String content, String photo) {
         super(id, userId, timeStamp, content, photo);
-        StoryExpiry storyExpiry = new StoryExpiry(this);
     }
 
     private void setId() {
