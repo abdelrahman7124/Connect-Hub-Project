@@ -1,24 +1,25 @@
 package SystemElements;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public abstract class Content {
 
     protected int id;
     private int userId;
-    private LocalDate timeStamp;
+    protected LocalDateTime timeStamp;
     private String content;
     private String photo;
 
     //constructor for new content
     public Content(int userId, String content, String photo) {
         this.userId = userId;
-        timeStamp = LocalDate.now();
+        timeStamp = LocalDateTime.now();
         this.content = content;
         this.photo = photo;
     }
     //constructor for read content from file 
-    public Content(int id, int userId, LocalDate timeStamp, String content, String photo) {
+    public Content(int id, int userId, LocalDateTime timeStamp, String content, String photo) {
         this.id = id;
         this.userId = userId;
         this.timeStamp = timeStamp;
@@ -35,7 +36,7 @@ public abstract class Content {
         return userId;
     }
 
-    public LocalDate getTimeStamp() {
+    public LocalDateTime getTimeStamp() {
         return timeStamp;
     }
 

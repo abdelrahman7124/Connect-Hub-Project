@@ -2,6 +2,8 @@ package SystemElements;
 
 import Database.UserDatabase;
 import java.time.LocalDate;
+import newtry.Validation;
+
 public class User {
 
     private int id;
@@ -14,13 +16,14 @@ public class User {
         this.fName = fName;
         this.lName = lName;
         this.email = email;
-        this.password = password;
+        this.password = Validation.hashPassword(password);
         this.dateOfbirth = dateOfbirth;
         this.status = "Online";
         photo = "Unknown.jpg";
         cover = "";
         Bio = "";
     }
+//constructor for loading from file only
 
     public User(int id, String fName, String lName, String email, String password, String status, String Bio, String photo, String cover, LocalDate dateOfbirth) {
         this.id = id;
@@ -88,7 +91,7 @@ public class User {
     }
 
     public void setPassword(String password) {
-        this.password = password;
+        this.password = Validation.hashPassword(password);
     }
 
     public void setStatus(String status) {

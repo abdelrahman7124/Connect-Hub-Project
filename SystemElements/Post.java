@@ -1,9 +1,8 @@
 package SystemElements;
 
 import Database.PostDatabase;
-import Database.UserDatabase;
 import SystemElements.Content;
-import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 public class Post extends Content {
     
@@ -14,7 +13,7 @@ public class Post extends Content {
     }
 
     //constructor for read post from file 
-    public Post(int id, int userId, LocalDate timeStamp, String content, String photo) {
+    public Post(int id, int userId, LocalDateTime timeStamp, String content, String photo) {
         super(id, userId, timeStamp, content, photo);
     }
 
